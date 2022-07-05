@@ -28,13 +28,12 @@ import static net.dv8tion.jda.api.utils.cache.CacheFlag.*;
 )
 public class Bot extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(Bot.class);
-    private static final String TOKEN = "OTcyNTI5MDM2NDY1MTcyNTkw.GAhuua.KFpfaok336np6oB9ni4xWOHkNnHRMfzIJXVVNU";
-    JDA jda;
+    public static JDA jda;
     @Override
     public void init() {
         try {
             jda = JDABuilder.createDefault(
-                            TOKEN,
+                            System.getenv("TOKEN"),
                             GUILD_MESSAGES,
                             GUILD_MESSAGE_REACTIONS,
                             GUILD_VOICE_STATES,
